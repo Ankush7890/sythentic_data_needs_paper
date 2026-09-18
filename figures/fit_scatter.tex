@@ -1,0 +1,68 @@
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=3 by 1, horizontal sep=0.9cm}, width=0.36\linewidth, height=5.0cm,
+  xmode=log, log basis x=10, xmin=7, xmax=6000, xtick={10,30,100,300,1000,3000}, xticklabels={$\le$10,30,100,300,1000,3000}, ymin=0.5, ymax=1.0, grid=major,
+  xlabel={half-gain size $m$ (samples)}, tick label style={font=\scriptsize}, label style={font=\scriptsize}, title style={font=\small},
+  legend style={font=\tiny, draw=none, row sep=-2pt}, legend columns=2, error bars/x dir=both, error bars/x explicit, error bars/error bar style={opacity=0.22, very thin}]
+\nextgroupplot[title={High-stakes}, legend to name=fitlegend0, ylabel={level $U$ (fitted ceiling)}]
+\addplot[only marks, color=blue, mark=*, mark size=1.7pt, mark options={fill=blue, draw=blue}, forget plot] coordinates {(10.0,0.9741) -= (0.0,0) += (14.1,0) (22.2,0.9727) -= (12.2,0) += (62.0,0) (10.0,0.9604) -= (0.0,0) += (10.5,0) (10.0,0.9689) -= (0.0,0) += (16.3,0)};
+\addplot[only marks, color=blue, mark=triangle*, mark size=1.7pt, mark options={fill=blue, draw=blue}, forget plot] coordinates {(22.2,0.9398) -= (10.8,0) += (11.4,0) (15.9,0.9729) -= (5.9,0) += (20.7,0) (18.8,0.9175) -= (8.8,0) += (5.4,0) (10.0,0.9727) -= (0.0,0) += (23.6,0)};
+\addplot[only marks, color=blue, mark=square*, mark size=1.7pt, mark options={fill=blue, draw=blue}, forget plot] coordinates {(10.0,0.9612) -= (0.0,0) += (50.3,0)};
+\addlegendimage{only marks, color=blue, mark=*, mark size=1.7pt}\addlegendentry{{Anthropic-HH}}
+\addplot[only marks, color=red, mark=*, mark size=1.7pt, mark options={fill=red, draw=red}, forget plot] coordinates {(10.5,0.9696) -= (0.5,0) += (13.6,0) (10.0,0.9780) -= (0.0,0) += (154.7,0) (65.5,0.9811) -= (14.5,0) += (11.9,0) (22.2,0.9744) -= (12.2,0) += (4.0,0)};
+\addplot[only marks, color=red, mark=square*, mark size=1.7pt, mark options={fill=red, draw=red}, forget plot] coordinates {(10.0,0.9867) -= (0.0,0) += (89.4,0)};
+\addlegendimage{only marks, color=red, mark=*, mark size=1.7pt}\addlegendentry{{MT-Samples}}
+\addplot[only marks, color=green!60!black, mark=*, mark size=1.7pt, mark options={fill=green!60!black, draw=green!60!black}, forget plot] coordinates {(10.0,0.9754) -= (0.0,0) += (12.2,0) (18.8,0.9763) -= (8.8,0) += (52.6,0) (51.0,0.9554) -= (41.0,0) += (87.8,0) (10.0,0.9667) -= (0.0,0) += (81.7,0)};
+\addplot[only marks, color=green!60!black, mark=square*, mark size=1.7pt, mark options={fill=green!60!black, draw=green!60!black}, forget plot] coordinates {(20.4,0.9785) -= (10.4,0) += (10.6,0)};
+\addlegendimage{only marks, color=green!60!black, mark=*, mark size=1.7pt}\addlegendentry{{MTS-Dialog}}
+\addplot[only marks, color=orange, mark=*, mark size=1.7pt, mark options={fill=orange, draw=orange}, forget plot] coordinates {(10.0,0.8841) -= (0.0,0) += (74.4,0) (24.1,0.7980) -= (12.7,0) += (12.5,0) (10.0,0.8067) -= (0.0,0) += (2.4,0) (24.1,0.8128) -= (14.1,0) += (22.9,0)};
+\addplot[only marks, color=orange, mark=triangle*, mark size=1.7pt, mark options={fill=orange, draw=orange}, forget plot] coordinates {(17.3,0.7447) -= (7.3,0) += (38.3,0) (10.0,0.9124) -= (0.0,0) += (41.3,0) (39.8,0.8487) -= (29.8,0) += (25.9,0) (10.0,0.8881) -= (0,0) += (0,0) (65.5,0.8645) -= (55.5,0) += (149.2,0)};
+\addlegendimage{only marks, color=orange, mark=*, mark size=1.7pt}\addlegendentry{{ToolACE}}
+\nextgroupplot[title={Harmful-to-human}, legend to name=fitlegend1]
+\addplot[only marks, color=blue, mark=o, mark size=1.7pt, mark options={fill=white, draw=blue}, forget plot] coordinates {(31.0,0.9662) -= (12.2,0) += (53.2,0) (20.4,0.9959) -= (9.0,0) += (0.0,0) (24.1,0.9725) -= (6.8,0) += (2.1,0) (20.4,0.9540) -= (8.0,0) += (5.8,0)};
+\addplot[only marks, color=blue, mark=*, mark size=1.7pt, mark options={fill=blue, draw=blue}, forget plot] coordinates {(193.7,0.9437) -= (122.6,0) += (153.5,0) (20.4,0.9823) -= (5.8,0) += (13.2,0) (17.3,0.9267) -= (4.9,0) += (9.0,0) (22.2,0.9836) -= (4.9,0) += (6.3,0)};
+\addplot[only marks, color=blue, mark=triangle*, mark size=1.7pt, mark options={fill=blue, draw=blue}, forget plot] coordinates {(17.3,0.9974) -= (3.8,0) += (4.9,0) (14.6,0.9987) -= (2.2,0) += (5.8,0) (14.6,0.9590) -= (4.1,0) += (2.7,0) (17.3,0.9997) -= (4.9,0) += (11.2,0) (14.6,0.9678) -= (4.1,0) += (19.0,0)};
+\addplot[only marks, color=blue, mark=square*, mark size=1.7pt, mark options={fill=blue, draw=blue}, forget plot] coordinates {(178.2,0.9535) -= (149.7,0) += (306.4,0)};
+\addlegendimage{only marks, color=blue, mark=*, mark size=1.7pt}\addlegendentry{{AI-Dilemmas}}
+\addplot[only marks, color=red, mark=o, mark size=1.7pt, mark options={fill=white, draw=red}, forget plot] coordinates {(10.0,0.7494) -= (0,0) += (0,0) (14.6,0.7491) -= (0,0) += (0,0) (10.0,0.7165) -= (0.0,0) += (0.0,0) (18.8,0.8117) -= (0,0) += (0,0)};
+\addplot[only marks, color=red, mark=*, mark size=1.7pt, mark options={fill=red, draw=red}, forget plot] coordinates {(11.4,0.7860) -= (1.4,0) += (72.8,0) (77.4,0.7122) -= (55.3,0) += (6.8,0) (138.8,0.7612) -= (128.8,0) += (25.2,0) (22.2,0.7120) -= (8.7,0) += (55.2,0)};
+\addplot[only marks, color=red, mark=triangle*, mark size=1.7pt, mark options={fill=red, draw=red}, forget plot] coordinates {(18.8,0.8720) -= (8.8,0) += (7.5,0) (10.0,0.8751) -= (0.0,0) += (89.4,0) (15.9,0.9208) -= (5.9,0) += (27.3,0) (60.3,0.9097) -= (50.3,0) += (133.4,0) (28.5,0.8740) -= (18.5,0) += (31.8,0)};
+\addplot[only marks, color=red, mark=square*, mark size=1.7pt, mark options={fill=red, draw=red}, forget plot] coordinates {(10.0,0.6854) -= (0,0) += (0,0)};
+\addlegendimage{only marks, color=red, mark=*, mark size=1.7pt}\addlegendentry{{Ant-HH}}
+\addplot[only marks, color=green!60!black, mark=o, mark size=1.7pt, mark options={fill=white, draw=green!60!black}, forget plot] coordinates {(51.0,1.0000) -= (41.0,0) += (143.1,0)};
+\addplot[only marks, color=green!60!black, mark=*, mark size=1.7pt, mark options={fill=green!60!black, draw=green!60!black}, forget plot] coordinates {(10.5,0.9211) -= (0.5,0) += (3.0,0) (20.4,0.9500) -= (10.4,0) += (1.8,0) (10.5,0.8815) -= (0.5,0) += (11.7,0) (12.4,0.9463) -= (2.4,0) += (8.0,0)};
+\addplot[only marks, color=green!60!black, mark=square*, mark size=1.7pt, mark options={fill=green!60!black, draw=green!60!black}, forget plot] coordinates {(10.5,0.9441) -= (0.5,0) += (6.8,0)};
+\addlegendimage{only marks, color=green!60!black, mark=*, mark size=1.7pt}\addlegendentry{{Refusal}}
+\addplot[only marks, color=orange, mark=o, mark size=1.7pt, mark options={fill=white, draw=orange}, forget plot] coordinates {(11.4,0.9736) -= (1.4,0) += (28.4,0) (10.0,0.9841) -= (0.0,0) += (1.4,0) (17.3,0.9827) -= (7.3,0) += (1.5,0) (10.0,0.9815) -= (0.0,0) += (3.5,0)};
+\addplot[only marks, color=orange, mark=*, mark size=1.7pt, mark options={fill=orange, draw=orange}, forget plot] coordinates {(12.4,0.9090) -= (2.4,0) += (2.2,0) (14.6,0.9789) -= (4.6,0) += (7.6,0) (12.4,0.9776) -= (1.9,0) += (2.2,0) (18.8,0.9844) -= (5.3,0) += (7.4,0)};
+\addplot[only marks, color=orange, mark=square*, mark size=1.7pt, mark options={fill=orange, draw=orange}, forget plot] coordinates {(10.0,0.9697) -= (0.0,0) += (37.1,0)};
+\addlegendimage{only marks, color=orange, mark=*, mark size=1.7pt}\addlegendentry{{Daily-Dilemmas}}
+\nextgroupplot[title={Instruction-following}, legend to name=fitlegend2]
+\addplot[only marks, color=blue, mark=*, mark size=1.7pt, mark options={fill=blue, draw=blue}, forget plot] coordinates {(12.4,1.0000) -= (2.4,0) += (65.0,0) (65.5,1.0000) -= (28.9,0) += (52.0,0) (164.0,0.6694) -= (153.5,0) += (66.5,0) (99.4,1.0000) -= (88.9,0) += (194.5,0)};
+\addlegendimage{only marks, color=blue, mark=*, mark size=1.7pt}\addlegendentry{{Harmless-refusal}}
+\addplot[only marks, color=red, mark=o, mark size=1.7pt, mark options={fill=white, draw=red}, forget plot] coordinates {(26.2,0.8133) -= (13.8,0) += (4.8,0) (319.4,0.9963) -= (211.3,0) += (126.4,0) (150.9,0.6255) -= (59.6,0) += (1281.2,0) (138.8,0.7082) -= (83.5,0) += (1178.7,0)};
+\addplot[only marks, color=red, mark=*, mark size=1.7pt, mark options={fill=red, draw=red}, forget plot] coordinates {(10.0,0.9404) -= (0.0,0) += (67.4,0) (31.0,0.9368) -= (10.6,0) += (40.4,0) (99.4,0.7815) -= (84.8,0) += (149.9,0) (445.8,0.9988) -= (235.3,0) += (38.8,0)};
+\addplot[only marks, color=red, mark=square*, mark size=1.7pt, mark options={fill=red, draw=red}, forget plot] coordinates {(14.6,0.8276) -= (4.1,0) += (7.6,0)};
+\addlegendimage{only marks, color=red, mark=*, mark size=1.7pt}\addlegendentry{{BBQ-substitution}}
+\addplot[only marks, color=green!60!black, mark=o, mark size=1.7pt, mark options={fill=white, draw=green!60!black}, forget plot] coordinates {(11.4,0.5965) -= (0.9,0) += (12.8,0) (228.8,0.8822) -= (111.3,0) += (181.4,0) (526.7,0.9973) -= (348.5,0) += (95.5,0) (193.7,0.7484) -= (54.9,0) += (217.4,0)};
+\addplot[only marks, color=green!60!black, mark=*, mark size=1.7pt, mark options={fill=green!60!black, draw=green!60!black}, forget plot] coordinates {(77.4,0.8933) -= (43.8,0) += (193.6,0) (138.8,1.0000) -= (21.3,0) += (25.2,0) (91.5,0.9634) -= (20.3,0) += (36.2,0) (319.4,0.5523) -= (141.2,0) += (1857.8,0)};
+\addplot[only marks, color=green!60!black, mark=triangle*, mark size=1.7pt, mark options={fill=green!60!black, draw=green!60!black}, forget plot] coordinates {(150.9,1.0000) -= (33.4,0) += (27.3,0) (43.2,1.0000) -= (9.6,0) += (7.8,0) (39.8,0.9927) -= (11.3,0) += (15.7,0) (36.6,0.9890) -= (5.7,0) += (10.4,0) (164.0,1.0000) -= (25.2,0) += (14.2,0)};
+\addplot[only marks, color=green!60!black, mark=square*, mark size=1.7pt, mark options={fill=green!60!black, draw=green!60!black}, forget plot] coordinates {(77.4,0.9661) -= (26.4,0) += (14.3,0)};
+\addlegendimage{only marks, color=green!60!black, mark=*, mark size=1.7pt}\addlegendentry{{HC-context-drift}}
+\addplot[only marks, color=orange, mark=o, mark size=1.7pt, mark options={fill=white, draw=orange}, forget plot] coordinates {(26.2,0.8842) -= (5.8,0) += (4.8,0) (248.7,0.9095) -= (109.9,0) += (197.1,0) (868.5,0.9777) -= (729.7,0) += (249.1,0) (210.5,0.6657) -= (17.2,0) += (108.9,0)};
+\addplot[only marks, color=orange, mark=*, mark size=1.7pt, mark options={fill=orange, draw=orange}, forget plot] coordinates {(51.0,0.9072) -= (17.4,0) += (20.2,0) (150.9,0.9727) -= (51.5,0) += (42.8,0) (138.8,0.9533) -= (54.6,0) += (90.0,0) (347.2,0.5308) -= (98.5,0) += (138.4,0)};
+\addplot[only marks, color=orange, mark=square*, mark size=1.7pt, mark options={fill=orange, draw=orange}, forget plot] coordinates {(28.5,0.8499) -= (4.4,0) += (14.7,0)};
+\addlegendimage{only marks, color=orange, mark=*, mark size=1.7pt}\addlegendentry{{HC-contradiction}}
+\addplot[only marks, color=violet, mark=o, mark size=1.7pt, mark options={fill=white, draw=violet}, forget plot] coordinates {(18.8,0.9763) -= (5.3,0) += (14.8,0) (193.7,1.0000) -= (66.0,0) += (35.1,0) (526.7,1.0000) -= (409.2,0) += (149.6,0) (178.2,0.8148) -= (39.7,0) += (92.2,0)};
+\addplot[only marks, color=violet, mark=*, mark size=1.7pt, mark options={fill=violet, draw=violet}, forget plot] coordinates {(43.2,0.9432) -= (17.0,0) += (28.0,0) (33.6,0.9904) -= (9.5,0) += (26.7,0) (51.0,0.9529) -= (7.8,0) += (20.4,0) (270.4,0.7419) -= (119.9,0) += (677.9,0)};
+\addplot[only marks, color=violet, mark=square*, mark size=1.7pt, mark options={fill=violet, draw=violet}, forget plot] coordinates {(47.0,0.7753) -= (22.9,0) += (438.6,0)};
+\addlegendimage{only marks, color=violet, mark=*, mark size=1.7pt}\addlegendentry{{MM-substitution}}
+\addplot[only marks, color=teal, mark=o, mark size=1.7pt, mark options={fill=white, draw=teal}, forget plot] coordinates {(28.5,0.7359) -= (15.0,0) += (8.1,0) (676.3,0.9906) -= (559.1,0) += (124.5,0) (3893.8,0.8023) -= (3833.7,0) += (1106.2,0) (84.2,0.5855) -= (60.4,0) += (67.7,0)};
+\addplot[only marks, color=teal, mark=*, mark size=1.7pt, mark options={fill=teal, draw=teal}, forget plot] coordinates {(91.5,0.6771) -= (7.3,0) += (0.0,0) (410.2,0.9809) -= (116.3,0) += (74.4,0) (319.4,1.0000) -= (70.7,0) += (58.0,0) (1317.5,0.9935) -= (1167.0,0) += (681.3,0)};
+\addplot[only marks, color=teal, mark=triangle*, mark size=1.7pt, mark options={fill=teal, draw=teal}, forget plot] coordinates {(77.4,0.9359) -= (21.9,0) += (14.1,0) (77.4,0.9527) -= (17.1,0) += (22.0,0) (210.5,0.7548) -= (32.3,0) += (136.7,0) (65.5,0.8687) -= (14.5,0) += (11.9,0) (77.4,0.9989) -= (21.9,0) += (22.0,0)};
+\addplot[only marks, color=teal, mark=square*, mark size=1.7pt, mark options={fill=teal, draw=teal}, forget plot] coordinates {(210.5,0.9747) -= (32.3,0) += (59.9,0)};
+\addlegendimage{only marks, color=teal, mark=*, mark size=1.7pt}\addlegendentry{{OIG-context-drift}}
+\end{groupplot}
+\node[anchor=north] at ($(group c1r1.south)+(0,-0.75cm)$) {\pgfplotslegendfromname{fitlegend0}};
+\node[anchor=north] at ($(group c2r1.south)+(0,-0.75cm)$) {\pgfplotslegendfromname{fitlegend1}};
+\node[anchor=north] at ($(group c3r1.south)+(0,-0.75cm)$) {\pgfplotslegendfromname{fitlegend2}};
+\end{tikzpicture}

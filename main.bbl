@@ -1,0 +1,254 @@
+\begin{thebibliography}{34}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Alain \& Bengio(2017)Alain and Bengio]{alain2017understanding}
+Guillaume Alain and Yoshua Bengio.
+\newblock Understanding intermediate layers using linear classifier probes.
+\newblock In \emph{ICLR Workshop Track}, 2017.
+
+\bibitem[Bai et~al.(2022)Bai, Jones, Ndousse, Askell, Chen, DasSarma, Drain,
+  Fort, Ganguli, Henighan, et~al.]{bai2022training}
+Yuntao Bai, Andy Jones, Kamal Ndousse, Amanda Askell, Anna Chen, Nova DasSarma,
+  Dawn Drain, Stanislav Fort, Deep Ganguli, Tom Henighan, et~al.
+\newblock Training a helpful and harmless assistant with reinforcement learning
+  from human feedback.
+\newblock \emph{arXiv preprint arXiv:2204.05862}, 2022.
+
+\bibitem[Bailey et~al.(2024)Bailey, Serrano, Sheshadri, Seleznyov, Taylor,
+  Jenner, Hilton, Casper, Guestrin, and Emmons]{bailey2024obfuscated}
+Luke Bailey, Alex Serrano, Abhay Sheshadri, Mikhail Seleznyov, Jordan Taylor,
+  Erik Jenner, Jacob Hilton, Stephen Casper, Carlos Guestrin, and Scott Emmons.
+\newblock Obfuscated activations bypass {LLM} latent-space defenses.
+\newblock \emph{arXiv preprint arXiv:2412.09565}, 2024.
+
+\bibitem[Belinkov(2022)]{belinkov2022probing}
+Yonatan Belinkov.
+\newblock Probing classifiers: Promises, shortcomings, and advances.
+\newblock \emph{Computational Linguistics}, 48\penalty0 (1):\penalty0 207--219,
+  2022.
+
+\bibitem[Ben~Abacha et~al.(2023)Ben~Abacha, Yim, Fan, and
+  Lin]{benabacha2023mtsdialog}
+Asma Ben~Abacha, Wen-wai Yim, Yadan Fan, and Thomas Lin.
+\newblock An empirical study of clinical note generation from doctor-patient
+  encounters.
+\newblock In \emph{Proceedings of the 17th Conference of the European Chapter
+  of the Association for Computational Linguistics}, 2023.
+
+\bibitem[Blandfort \& Graham(2025)Blandfort and
+  Graham]{blandfort2025redteaming}
+Phil Blandfort and Robert Graham.
+\newblock Red-teaming activation probes using prompted {LLMs}.
+\newblock \emph{arXiv preprint arXiv:2511.00554}, 2025.
+
+\bibitem[Blandfort et~al.(2025)Blandfort, McKenzie, Pawar, and
+  Bankes]{tuberlens}
+Phil Blandfort, Alex McKenzie, Urja Pawar, and William Bankes.
+\newblock Tuberlens: training and evaluating activation probes.
+\newblock \url{https://github.com/blandfort/tuberlens}, 2025.
+
+\bibitem[Chiu et~al.(2024)Chiu, Jiang, and Choi]{chiu2024dailydilemmas}
+Yu~Ying Chiu, Liwei Jiang, and Yejin Choi.
+\newblock {DailyDilemmas}: Revealing value preferences of {LLMs} with
+  quandaries of daily life.
+\newblock \emph{arXiv preprint arXiv:2410.02683}, 2024.
+
+\bibitem[Duan(2026)]{duan2026staleness}
+Evan Duan.
+\newblock Do activation monitors survive model updates? benchmarking,
+  predicting, and repairing activation-monitor staleness.
+\newblock \emph{arXiv preprint arXiv:2606.15980}, 2026.
+
+\bibitem[Engels et~al.(2025)Engels, Michaud, Liao, Gurnee, and
+  Tegmark]{engels2025notall}
+Joshua Engels, Eric~J. Michaud, Isaac Liao, Wes Gurnee, and Max Tegmark.
+\newblock Not all language model features are one-dimensionally linear.
+\newblock In \emph{International Conference on Learning Representations}, 2025.
+
+\bibitem[Ganguli et~al.(2022)Ganguli, Lovitt, Kernion, Askell, Bai, Kadavath,
+  Mann, Perez, Schiefer, Ndousse, et~al.]{ganguli2022red}
+Deep Ganguli, Liane Lovitt, Jackson Kernion, Amanda Askell, Yuntao Bai, Saurav
+  Kadavath, Ben Mann, Ethan Perez, Nicholas Schiefer, Kamal Ndousse, et~al.
+\newblock Red teaming language models to reduce harms: Methods, scaling
+  behaviors, and lessons learned.
+\newblock \emph{arXiv preprint arXiv:2209.07858}, 2022.
+
+\bibitem[{Gemma Team}(2025)]{gemma3}
+{Gemma Team}.
+\newblock Gemma 3 technical report.
+\newblock \emph{arXiv preprint arXiv:2503.19786}, 2025.
+
+\bibitem[Goldowsky-Dill et~al.(2025)Goldowsky-Dill, Chughtai, Heimersheim, and
+  Hobbhahn]{goldowskydill2025deception}
+Nicholas Goldowsky-Dill, Bilal Chughtai, Stefan Heimersheim, and Marius
+  Hobbhahn.
+\newblock Detecting strategic deception using linear probes.
+\newblock In \emph{Proceedings of the 42nd International Conference on Machine
+  Learning}, 2025.
+\newblock arXiv:2502.03407.
+
+\bibitem[Heo et~al.(2025)Heo, Heinze-Deml, Elachqar, Ren, Nallasamy, Miller,
+  Chan, and Narain]{heo2025instructions}
+Juyeon Heo, Christina Heinze-Deml, Oussama Elachqar, Shirley Ren, Udhay
+  Nallasamy, Andy Miller, Kwan Ho~Ryan Chan, and Jaya Narain.
+\newblock Do {LLMs} ``know'' internally when they follow instructions?
+\newblock In \emph{International Conference on Learning Representations}, 2025.
+\newblock arXiv:2410.14516.
+
+\bibitem[Hestness et~al.(2017)Hestness, Narang, Ardalani, Diamos, Jun,
+  Kianinejad, Patwary, Yang, and Zhou]{hestness2017deep}
+Joel Hestness, Sharan Narang, Newsha Ardalani, Gregory Diamos, Heewoo Jun,
+  Hassan Kianinejad, Md. Mostofa~Ali Patwary, Yang Yang, and Yanqi Zhou.
+\newblock Deep learning scaling is predictable, empirically.
+\newblock \emph{arXiv preprint arXiv:1712.00409}, 2017.
+
+\bibitem[Hewitt \& Liang(2019)Hewitt and Liang]{hewitt2019control}
+John Hewitt and Percy Liang.
+\newblock Designing and interpreting probes with control tasks.
+\newblock In \emph{Proceedings of the 2019 Conference on Empirical Methods in
+  Natural Language Processing and the 9th International Joint Conference on
+  Natural Language Processing (EMNLP-IJCNLP)}, pp.\  2733--2743, 2019.
+
+\bibitem[Kiela et~al.(2021)Kiela, Bartolo, Nie, Kaushik, Geiger, Wu, Vidgen,
+  Prasad, Singh, Ringshia, et~al.]{kiela2021dynabench}
+Douwe Kiela, Max Bartolo, Yixin Nie, Divyansh Kaushik, Atticus Geiger,
+  Zhengxuan Wu, Bertie Vidgen, Grusha Prasad, Amanpreet Singh, Pratik Ringshia,
+  et~al.
+\newblock Dynabench: Rethinking benchmarking in {NLP}.
+\newblock In \emph{Proceedings of NAACL-HLT}, 2021.
+
+\bibitem[Kirch et~al.(2026)Kirch, Dower, Skapars, Yannakoudakis, Lubana, and
+  Krasheninnikov]{kirch2026offpolicy}
+Nathalie Kirch, Samuel Dower, Adrians Skapars, Helen Yannakoudakis,
+  Ekdeep~Singh Lubana, and Dmitrii Krasheninnikov.
+\newblock The impact of off-policy training data on probe generalisation.
+\newblock In \emph{Findings of the Association for Computational Linguistics:
+  ACL 2026}, pp.\  22673--22729, 2026.
+\newblock arXiv:2511.17408.
+
+\bibitem[Kram{\'a}r et~al.(2026)Kram{\'a}r, Engels, Wang, Chughtai, Shah,
+  Nanda, and Conmy]{kramar2026production}
+J{\'a}nos Kram{\'a}r, Joshua Engels, Zheng Wang, Bilal Chughtai, Rohin Shah,
+  Neel Nanda, and Arthur Conmy.
+\newblock Building production-ready probes for {Gemini}.
+\newblock \emph{arXiv preprint arXiv:2601.11516}, 2026.
+
+\bibitem[{LAION}(2023)]{laion2023oig}
+{LAION}.
+\newblock The {OIG} dataset: Open instruction generalist.
+\newblock \url{https://laion.ai/blog/oig-dataset/}, 2023.
+
+\bibitem[Li et~al.(2023)Li, Zhu, Lu, and Yin]{li2023synthetic}
+Zhuoyan Li, Hangxiao Zhu, Zhuoran Lu, and Ming Yin.
+\newblock Synthetic data generation with large language models for text
+  classification: Potential and limitations.
+\newblock In \emph{Proceedings of the 2023 Conference on Empirical Methods in
+  Natural Language Processing}, pp.\  10443--10461, 2023.
+
+\bibitem[Liu et~al.(2024)Liu, Huang, Zeng, Hao, Yu, Li, Wang, Gan, Liu, Yu,
+  Wang, Wang, Ning, Hou, Wang, Wu, Wang, Liu, Wang, Tang, Tu, Shang, Jiang,
+  Tang, Lian, Liu, and Chen]{liu2024toolace}
+Weiwen Liu, Xu~Huang, Xingshan Zeng, Xinlong Hao, Shuai Yu, Dexun Li, Shuai
+  Wang, Weinan Gan, Zhengying Liu, Yuanqing Yu, Zezhong Wang, Yuxian Wang,
+  Wu~Ning, Yutai Hou, Bin Wang, Chuhan Wu, Xinzhi Wang, Yong Liu, Yasheng Wang,
+  Duyu Tang, Dandan Tu, Lifeng Shang, Xin Jiang, Ruiming Tang, Defu Lian, Qun
+  Liu, and Enhong Chen.
+\newblock {ToolACE}: Winning the points of {LLM} function calling.
+\newblock \emph{arXiv preprint arXiv:2409.00920}, 2024.
+
+\bibitem[MacDiarmid et~al.(2024)MacDiarmid, Maxwell, Schiefer, Mu, Kaplan,
+  Duvenaud, Bowman, Tamkin, Perez, Sharma, Denison, and
+  Hubinger]{macdiarmid2024sleeper}
+Monte MacDiarmid, Timothy Maxwell, Nicholas Schiefer, Jesse Mu, Jared Kaplan,
+  David Duvenaud, Sam Bowman, Alex Tamkin, Ethan Perez, Mrinank Sharma, Carson
+  Denison, and Evan Hubinger.
+\newblock Simple probes can catch sleeper agents.
+\newblock Anthropic Alignment Science blog, 2024.
+
+\bibitem[McKenzie et~al.(2025)McKenzie, Pawar, Blandfort, Bankes, Gal, Krueger,
+  Kirk, et~al.]{mckenzie2025highstakes}
+Alex McKenzie, Urja Pawar, Phil Blandfort, William Bankes, Yarin Gal, David
+  Krueger, Dmitrii Kirk, et~al.
+\newblock Detecting high-stakes interactions with activation probes.
+\newblock \emph{arXiv preprint arXiv:2506.10805}, 2025.
+
+\bibitem[Nie et~al.(2020)Nie, Williams, Dinan, Bansal, Weston, and
+  Kiela]{nie2020adversarial}
+Yixin Nie, Adina Williams, Emily Dinan, Mohit Bansal, Jason Weston, and Douwe
+  Kiela.
+\newblock Adversarial {NLI}: A new benchmark for natural language
+  understanding.
+\newblock In \emph{Proceedings of the 58th Annual Meeting of the Association
+  for Computational Linguistics}, 2020.
+
+\bibitem[Park et~al.(2024)Park, Choe, and Veitch]{park2024linear}
+Kiho Park, Yo~Joong Choe, and Victor Veitch.
+\newblock The linear representation hypothesis and the geometry of large
+  language models.
+\newblock In \emph{Proceedings of the 41st International Conference on Machine
+  Learning}, 2024.
+
+\bibitem[Parrish et~al.(2022)Parrish, Chen, Nangia, Padmakumar, Phang,
+  Thompson, Htut, and Bowman]{parrish2022bbq}
+Alicia Parrish, Angelica Chen, Nikita Nangia, Vishakh Padmakumar, Jason Phang,
+  Jana Thompson, Phu~Mon Htut, and Samuel~R. Bowman.
+\newblock {BBQ}: A hand-built bias benchmark for question answering.
+\newblock In \emph{Findings of the Association for Computational Linguistics:
+  ACL 2022}, pp.\  2086--2105, 2022.
+
+\bibitem[Perez et~al.(2022)Perez, Huang, Song, Cai, Ring, Aslanides, Glaese,
+  McAleese, and Irving]{perez2022red}
+Ethan Perez, Saffron Huang, Francis Song, Trevor Cai, Roman Ring, John
+  Aslanides, Amelia Glaese, Nat McAleese, and Geoffrey Irving.
+\newblock Red teaming language models with language models.
+\newblock \emph{arXiv preprint arXiv:2202.03286}, 2022.
+
+\bibitem[Ren et~al.(2025)Ren, Xu, Yang, Wang, Zhu, Wei, Yu, and
+  Xu]{ren2025distribution}
+Jiyuan Ren, Zhaocheng Xu, Zhiqiang Yang, Yuxin Wang, Hao Zhu, Yijun Wei, Chuan
+  Yu, and Jian Xu.
+\newblock Few-shot {LLM} synthetic data with distribution matching.
+\newblock In \emph{Companion Proceedings of the ACM Web Conference 2025}, 2025.
+\newblock arXiv:2502.08661.
+
+\bibitem[Rozenfeld et~al.(2026)Rozenfeld, Pankajakshan, Zloczower, Lenga,
+  Gressel, and Mirsky]{rozenfeld2026gavel}
+Shir Rozenfeld, Rahul Pankajakshan, Itay Zloczower, Eyal Lenga, Gilad Gressel,
+  and Yisroel Mirsky.
+\newblock {GAVEL}: Towards rule-based safety through activation monitoring.
+\newblock In \emph{International Conference on Learning Representations}, 2026.
+\newblock arXiv:2601.19768.
+
+\bibitem[Tillman \& Mossing(2025)Tillman and Mossing]{tillman2025taskspecific}
+Henk Tillman and Dan Mossing.
+\newblock Investigating task-specific prompts and sparse autoencoders for
+  activation monitoring.
+\newblock \emph{arXiv preprint arXiv:2504.20271}, 2025.
+
+\bibitem[Viering \& Loog(2023)Viering and Loog]{viering2023shape}
+Tom Viering and Marco Loog.
+\newblock The shape of learning curves: A review.
+\newblock \emph{IEEE Transactions on Pattern Analysis and Machine
+  Intelligence}, 45\penalty0 (6):\penalty0 7799--7819, 2023.
+
+\bibitem[Ye et~al.(2022)Ye, Gao, Li, Xu, Feng, Wu, Yu, and Kong]{ye2022zerogen}
+Jiacheng Ye, Jiahui Gao, Qintong Li, Hang Xu, Jiangtao Feng, Zhiyong Wu, Tao
+  Yu, and Lingpeng Kong.
+\newblock {ZeroGen}: Efficient zero-shot learning via dataset generation.
+\newblock In \emph{Proceedings of the 2022 Conference on Empirical Methods in
+  Natural Language Processing}, 2022.
+
+\bibitem[Yu et~al.(2023)Yu, Zhuang, Zhang, Meng, Ratner, Krishna, Shen, and
+  Zhang]{yu2023attrprompt}
+Yue Yu, Yuchen Zhuang, Jieyu Zhang, Yu~Meng, Alexander Ratner, Ranjay Krishna,
+  Jiaming Shen, and Chao Zhang.
+\newblock Large language model as attributed training data generator: A tale of
+  diversity and bias.
+\newblock In \emph{Advances in Neural Information Processing Systems 36
+  (Datasets and Benchmarks Track)}, 2023.
+
+\end{thebibliography}

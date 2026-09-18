@@ -1,0 +1,68 @@
+% Proposed replacement abstract (2026-09-15). Not yet wired into main.tex.
+% Rationale: leads with the practitioner's question, states the finding with the
+% numbers the tables actually support (within-0.05 at 30 samples rather than
+% "saturate within a few dozen"), and promotes the three less obvious results
+% (detailed prompt = an order of magnitude of data; red-teaming levels rather
+% than adds; generator ranking does not transfer) from footnotes to claims.
+\begin{abstract}
+Linear activation probes are a cheap way to monitor deployed language models,
+and their training data is almost always synthetic. Two questions decide the
+cost of every such monitor: how many synthetic examples does the probe need,
+and how should they be written? We answer both across three monitoring
+concepts---\emph{high-stakes} situations, assistant replies \emph{harmful} to a
+person, and replies that do not follow the user's \emph{instruction}---while
+holding the probe model, layer, architecture, generators, prompt structure, and
+evaluation protocol fixed, on fourteen held-out evaluation distributions. We
+measure learning curves over 10--590 synthetic samples for two data sources,
+direct prompting and an adversarial red-teaming scaffold that retrains on the
+probe's own mistakes, each under a \emph{general} prompt that states only the
+concept and a \emph{detailed} prompt that also describes the deployment
+distribution. The concept, not the recipe, sets the shape of the curve: with
+30 samples the high-stakes and harmfulness probes are within 0.05 AUROC of
+their 590-sample level, whereas the instruction-following probe is 0.21 below
+it, is not learnable at all from general prompts, and needs several hundred
+detailed-prompt samples; a split-level analysis traces this to the number of
+distinct failure modes the concept spans. The recipe sets the level: a
+detailed prompt is worth an order of magnitude of data on the splits it
+describes, with gains ordered exactly by the headroom the general prompt
+leaves (+0.14 to +0.18 on instruction following, $\le$+0.03 on harmfulness);
+adversarially found data adds up to +0.10 on the hard concept but only
+levels probes toward a fixed band on the easy ones; and which generator
+writes the best data reverses across concepts and budgets. We release the
+evaluation suites, dev sets, and generated training sets, and give a
+practical rule: measure the curve on held-out distributions before fixing a
+budget, because the concept decides where it bends.
+\end{abstract}
+
+% ---------------------------------------------------------------------------
+% Proposed replacement abstract v2 (2026-09-17). Not wired into main.tex.
+% Rationale: leads with the one non-obvious claim (recipe moves the level,
+% distribution sets the bend); ~210 words instead of 330; drops the
+% "0.08--0.21 below at 30 samples" figure, which is the 80-sample cut, not 30;
+% quotes the LLM-prompt gain against the hand-written description (+0.14 on
+% Ant-HH) instead of against the 50-sample probe (+0.29); states the
+% headroom-normalised ordering, which needs one sentence added to Sec. 5.1
+% (fraction of the 10->590 gain reached by 80 samples: hs 0.85-0.90,
+% harm 0.74-0.96, instr 0.24-0.70, computed from Table sizecurves).
+\begin{abstract}
+Activation probes that monitor deployed language models are trained almost
+entirely on synthetic data, so two questions set the cost of every monitor:
+how many samples, and how to write them. We measure learning curves over
+10--590 synthetic samples for three monitoring concepts---\hs{} situations,
+replies \harm{} to a person, and replies that do not follow the user's
+\instr{}---on fourteen held-out distributions and four probe models from 1B to
+27B parameters, under direct prompting and a red-teaming scaffold, with prompts
+that know nothing about the deployment traffic and prompts an LLM writes from
+samples of it. The recipe moves the level of the curve; the distribution
+decides where it bends. Cutting 590 samples to 80 costs \hs{} probes at most
+0.02 AUROC and \harm{} probes at most 0.06 but \instr{} probes 0.08--0.21, on
+every probe model and after normalising out headroom. Within one concept,
+saturation sizes differ by an order of magnitude between distributions; five
+deliberately different prompts written from one distribution's samples differ
+in final AUROC by up to 0.23 yet saturate at similar sizes; and within one
+distribution, subpopulations of samples settle at 60, 120, 300 samples, or
+not at all, replicably, with no surface feature of the text predicting which.
+Red-teaming levels the easy concepts toward a fixed band and adds only to the
+hard one. Data needs must be measured on the deployment distribution, and we
+release the evaluation suites, dev sets, and generated sets to do so.
+\end{abstract}

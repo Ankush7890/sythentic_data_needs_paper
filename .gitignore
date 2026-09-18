@@ -1,0 +1,16 @@
+# LaTeX build intermediates
+*.aux
+*.log
+*.fls
+*.fdb_latexmk
+*.out
+*.blg
+*.synctex.gz
+build.log
+
+# Python
+__pycache__/
+*.pyc
+
+# Editor backups
+*.bak*

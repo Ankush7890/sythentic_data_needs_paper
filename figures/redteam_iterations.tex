@@ -1,0 +1,26 @@
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=3 by 1, horizontal sep=0.9cm}, width=0.36\linewidth, height=4.6cm,
+  xlabel={red-team/retrain iteration}, xmin=0, xmax=10, ymin=0.70, ymax=1.0, grid=major, tick label style={font=\scriptsize}, label style={font=\scriptsize}, title style={font=\small},
+  legend style={font=\scriptsize, draw=none}, legend columns=4]
+\nextgroupplot[title={High-stakes}, ylabel={mean AUROC}]
+\addplot[color=gray, mark=*, mark size=1.4pt, thick, dashed] coordinates {(0,0.8503) (1,0.8873) (2,0.8944) (3,0.8797) (4,0.8693) (5,0.8674) (6,0.8641) (7,0.8703) (8,0.8667) (9,0.8730) (10,0.8587)};
+\addplot[color=red, mark=triangle*, mark size=1.4pt, thick, solid] coordinates {(0,0.8503) (1,0.8969) (2,0.8858) (3,0.8930) (4,0.8884) (5,0.8970) (6,0.9043) (7,0.8941) (8,0.9073) (9,0.9020) (10,0.9016)};
+\addplot[color=black, densely dotted, thick, no marks] coordinates {(0,0.981) (10,0.981)};
+\addplot[color=blue!60!black, densely dashed, thick, no marks] coordinates {(0,0.9485) (10,0.9485)};
+\nextgroupplot[title={Harmful-to-human}, legend to name=rtlegend]
+\addplot[color=gray, mark=*, mark size=1.4pt, thick, dashed] coordinates {(0,0.8759) (1,0.8408) (2,0.8661) (3,0.8812) (4,0.8827) (5,0.8884) (6,0.8843) (7,0.8909) (8,0.8905) (9,0.8908) (10,0.8881)};
+\addlegendentry{{general}}
+\addplot[color=red, mark=triangle*, mark size=1.4pt, thick, solid] coordinates {(0,0.8759) (1,0.8398) (2,0.8657) (3,0.8483) (4,0.8667) (5,0.8876) (6,0.8717) (7,0.8769) (8,0.8674) (9,0.8677) (10,0.8776)};
+\addlegendentry{{detailed eval description}}
+\addplot[color=black, densely dotted, thick, no marks] coordinates {(0,0.984) (10,0.984)};
+\addlegendentry{{ceiling}}
+\addplot[color=blue!60!black, densely dashed, thick, no marks] coordinates {(0,0.9069) (10,0.9069)};
+\addlegendentry{{{{best direct prompting, 590 samples}}}}
+\nextgroupplot[title={Instruction-following}]
+\addplot[color=gray, mark=*, mark size=1.4pt, thick, dashed] coordinates {(0,0.7423) (1,0.7824) (2,0.7810) (3,0.7800) (4,0.7929) (5,0.7689) (6,0.7701) (7,0.7704) (8,0.7916) (9,0.7848) (10,0.7854)};
+\addplot[color=red, mark=triangle*, mark size=1.4pt, thick, solid] coordinates {(0,0.7423) (1,0.8014) (2,0.8247) (3,0.8670) (4,0.8661) (5,0.8603) (6,0.8724) (7,0.8692) (8,0.8679) (9,0.8705) (10,0.8666)};
+\addplot[color=black, densely dotted, thick, no marks] coordinates {(0,0.98) (10,0.98)};
+\addplot[color=blue!60!black, densely dashed, thick, no marks] coordinates {(0,0.9322) (10,0.9322)};
+\end{groupplot}
+\node at ($(group c2r1.south)+(0,-1.1cm)$) {\pgfplotslegendfromname{rtlegend}};
+\end{tikzpicture}
