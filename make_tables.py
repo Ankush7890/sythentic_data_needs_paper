@@ -74,11 +74,12 @@ def split_curves(rows, steered=True):
 #            n = 10 (accum 1, batch 16), 30 (accum 2), 80/110/170/350/590 (accum 4). Both prompt arms at 10/30/80;
 #            general arm only above 80. Where both protocols exist at a size (80) the pooled fit is used.
 # Merged detailed curve: pooled 10/30/80 + fixed 110..590. Merged general curve: pooled throughout (four generators).
-# High-stakes pooled fits were still running on 2026-09-15 (4 draws, no accum-4 n=80, no Nemotron general), so
-# high-stakes keeps the fixed-base detailed curve (80..590) and the shared-Llama-base general curve (150..550).
+# High-stakes pooled run completed on origin/hs_general_fill (2026-09-20, 384 rows: both arms 10/30/80 at 8 draws,
+# accum-4 n=80 for both arms, general arm 110..590), so every concept follows the same rule; the accum-5 n=80 rows
+# and the shared-Llama-base general curve (data/highstakes_size_curve.csv, 150..550) are no longer plotted.
 XS = [10, 30, 80, 110, 170, 350, 590]
 GA = {10: "ga1bs16", 30: "ga2", 80: "ga4", 110: "ga4", 170: "ga4", 350: "ga4", 590: "ga4"}
-GA_ALT = {80: "none+ga5"}  # the high-stakes pooled run has only the 5-step regime at n=80 (80 samples = 5 batches of 16)
+GA_ALT = {80: "none+ga5"}  # fallback only; unused since the high-stakes accum-4 n=80 rows landed (2026-09-20)
 SPLIT_TAGS = ("anthropic_", "bbq_", "hc_", "mm_", "oig_", "mt_", "mts_", "toolace_", "tgt")
 
 def is_split_set(sample): return any(t in sample for t in SPLIT_TAGS)
@@ -116,7 +117,7 @@ for key, name, path, _ in CONCEPTS:
     PC, PS = pooled_curves(f"data/{key}_pooled_size_curve.csv")
     det = {g: {**{n: FC["detailed"][g][n] for n in XS if n > 80 and FC["detailed"][g].get(n)}, **{n: PC["detailed"][g][n] for n in (10, 30, 80) if PC["detailed"][g].get(n)}} for g in GENS}
     dets = {g: {**{n: FS["detailed"][g][n] for n in XS if n > 80 and FS["detailed"][g].get(n)}, **{n: PS["detailed"][g][n] for n in (10, 30, 80) if PS["detailed"][g].get(n)}} for g in GENS}
-    # general: pooled wherever it exists; the high-stakes pooled run stops at 80, so its 590 point is the fixed-base fit
+    # general: pooled wherever it exists (all seven sizes for every concept since 2026-09-20); fixed-base only fills a gap
     gen = {g: {**{n: FC["general"][g][n] for n in XS if n > 80 and FC["general"][g].get(n)}, **{n: PC["general"][g][n] for n in XS if PC["general"][g].get(n)}} for g in GENS}
     gens = {g: {**{n: FS["general"][g][n] for n in XS if n > 80 and FS["general"][g].get(n)}, **{n: PS["general"][g][n] for n in XS if PS["general"][g].get(n)}} for g in GENS}
     MERGED[key] = {"detailed": det, "general": gen}

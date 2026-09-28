@@ -71,12 +71,12 @@ for p in glob.glob(str(D / "dc_curves_*.csv")):
         else:
             sp, arm = rest.rsplit("_", 1); col = ("eval_" + sp) if con != "hu_harm" else sp
             if r.get(col): curves[(con, gen, sp, arm)][int(r["n"])].append(f(r[col]))
-PANELS = [("instructions", "anthropic_harmless_refusal"), ("instructions", "hc_context_drift"), ("hu_harm", "eval_balanced_refusal"), ("hu_harm", "eval_daily_dilemmas")]
+PANELS = [("instructions", "anthropic_harmless_refusal"), ("instructions", "hc_context_drift"), ("hu_harm", "eval_balanced_refusal"), ("hu_harm", "eval_daily_dilemmas"), ("highstakes", "anthropic_hh_balanced"), ("highstakes", "mts_balanced")]
 ARMS = [("kind", "own kind only", "blue", "*"), ("mixed", "whole set", "red", "square*"), ("loko", "set minus own kind", "black!60", "triangle*")]
 gen = "deepseekv4pro"
-fig = ["\\begin{tikzpicture}", "\\begin{groupplot}[group style={group size=4 by 1, horizontal sep=0.75cm}, width=0.27\\linewidth, height=4.2cm,",
-       "  xmode=log, log basis x=10, xtick={2,10,50,200,590}, xticklabels={2,10,50,200,590}, ymin=0.45, ymax=1.02, ytick={0.5,0.7,0.9},",
-       "  tick label style={font=\\tiny}, label style={font=\\scriptsize}, title style={font=\\scriptsize, yshift=-1ex}, xlabel={generated samples}, error bars/y dir=both, error bars/y explicit, error bars/error bar style={opacity=0.5}, every axis plot/.append style={mark size=1.1pt, line width=0.7pt}]"]
+fig = ["\\begin{tikzpicture}", "\\begin{groupplot}[group style={group size=6 by 1, horizontal sep=0.3cm, yticklabels at=edge left}, scale only axis, width=1.72cm, height=2.7cm,",
+       "  xmode=log, log basis x=10, xtick={2,20,200}, xticklabels={2,20,200}, ymin=0.45, ymax=1.02, ytick={0.5,0.7,0.9},",
+       "  tick label style={font=\\tiny}, label style={font=\\scriptsize}, title style={font=\\tiny, yshift=-1.2ex}, error bars/y dir=both, error bars/y explicit, error bars/error bar style={opacity=0.5}, every axis plot/.append style={mark size=1.1pt, line width=0.7pt}]"]
 for i, (con, sp) in enumerate(PANELS):
     title = NAME[sp]
     fig.append(f"\\nextgroupplot[title={{{title}}}" + (", ylabel={on-target AUROC}" if i == 0 else "") + (", legend to name=dclegend, legend style={font=\\scriptsize, legend columns=3, draw=none, /tikz/every even column/.append style={column sep=0.4cm}}" if i == 0 else "") + "]")
@@ -86,13 +86,23 @@ for i, (con, sp) in enumerate(PANELS):
         pts = " ".join(f"({n},{st.mean(v):.4f}) +- (0,{(st.pstdev(v) if len(v) > 1 else 0):.4f})" for n, v in sorted(c.items()))
         fig.append(f"\\addplot[color={colr}, mark={mk}] coordinates {{{pts}}};")
         if i == 0: fig.append(f"\\addlegendentry{{{lab}}}")
-fig += ["\\end{groupplot}", "\\node at ($(group c2r1.south east)+(0.35cm,-1.05cm)$) {\\pgfplotslegendfromname{dclegend}};", "\\end{tikzpicture}"]
+fig += ["\\end{groupplot}", "\\node[font=\\scriptsize] at ($(group c3r1.south east)+(0.15cm,-0.55cm)$) {generated samples};",
+        "\\node at ($(group c3r1.south east)+(0.15cm,-0.95cm)$) {\\pgfplotslegendfromname{dclegend}};", "\\end{tikzpicture}"]
 (FIG / "dc_curves.tex").write_text("\n".join(fig) + "\n")
 
 # ---- numbers for the prose
-si, sh = summary.get("instructions"), summary.get("hu_harm")
+si, sh, ss = summary.get("instructions"), summary.get("hu_harm"), summary.get("highstakes")
+lg = math.log10
 if si and sh:
-    gap_b = math.log10(si["m_b"] / sh["m_b"]); gap_a = math.log10(si["m_a"] / sh["m_a"])
-    print(f"instr vs harm: log10 gap mixed {gap_b:.2f}, kind-only {gap_a:.2f}, coverage share {1 - gap_a / gap_b:.2f}")
-for k, s in summary.items(): print(k, {a: (round(b, 2) if isinstance(b, float) else b) for a, b in s.items()})
+    print(f"instr vs harm: log10 gap mixed {lg(si['m_b']/sh['m_b']):.2f}, kind-only {lg(si['m_a']/sh['m_a']):.2f}, coverage share {1 - lg(si['m_a']/sh['m_a']) / lg(si['m_b']/sh['m_b']):.2f}")
+if si and sh and ss:
+    gb = lg(si["m_b"]) - (lg(sh["m_b"]) + lg(ss["m_b"])) / 2; ga = lg(si["m_a"]) - (lg(sh["m_a"]) + lg(ss["m_a"])) / 2
+    print(f"instr vs mean(harm, hs): log10 gap mixed {gb:.2f}, kind-only {ga:.2f}, coverage share {1 - ga / gb:.2f}")
+    print(f"instr vs hs: log10 gap mixed {lg(si['m_b']/ss['m_b']):.2f}, kind-only {lg(si['m_a']/ss['m_a']):.2f}")
+for k, s_ in summary.items():
+    rs = [r for r in rows if r["concept"] == k]; us = [r for r in rs if r["use"]]
+    print(k, {a: (round(b, 2) if isinstance(b, float) else b) for a, b in s_.items()},
+          "R range %.2f-%.0f" % (min(r["R"] for r in us), max(r["R"] for r in us)), "R<1:", sum(r["R"] < 1 for r in us),
+          "n_eff %s" % sorted({round(f(r["n_eff"]), 2) for r in rs}), "t_other %s" % sorted({round(f(r["t_other"]), 3) for r in rs}),
+          "kind_n %s" % sorted(int(r["kind_n"]) for r in rs if r["kind_n"]))
 print("fits:", sum(1 for _ in csv.DictReader(open(D / "dc_fits.csv"))), "curve rows:", sum(len(v) for c in curves.values() for v in c.values()))

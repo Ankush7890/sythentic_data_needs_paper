@@ -3,10 +3,10 @@
   xmode=log, log basis x=10, xlabel={generated samples}, ymin=0.5, ymax=1.0, grid=major, tick label style={font=\scriptsize}, label style={font=\scriptsize}, title style={font=\small},
   legend style={font=\scriptsize, draw=none}, legend columns=5, error bars/y dir=both, error bars/y explicit]
 \nextgroupplot[title={High-stakes}, xtick={10,30,80,170,350,590}, xticklabels={10,30,80,170,,590}, xmin=8, xmax=700, ylabel={mean AUROC (general)}]
-\addplot[color=blue, mark=*, mark size=1.6pt, thick] coordinates {(10,0.7139) +- (0,0.0196) (30,0.7756) +- (0,0.0704) (80,0.8627) +- (0,0.0215) (590,0.8495) +- (0,0.0238)};
-\addplot[color=red, mark=square*, mark size=1.6pt, thick] coordinates {(10,0.7269) +- (0,0.0487) (30,0.8361) +- (0,0.0240) (80,0.8466) +- (0,0.0167) (590,0.9004) +- (0,0.0095)};
-\addplot[color=green!60!black, mark=triangle*, mark size=1.6pt, thick] coordinates {(10,0.7352) +- (0,0.0832) (30,0.8402) +- (0,0.0423) (80,0.8524) +- (0,0.0177) (590,0.8768) +- (0,0.0134)};
-\addplot[color=orange, mark=diamond*, mark size=1.6pt, thick] coordinates {(10,0.7461) +- (0,0.0191) (30,0.7925) +- (0,0.0219) (80,0.8413) +- (0,0.0161) (590,0.8792) +- (0,0.0130)};
+\addplot[color=blue, mark=*, mark size=1.6pt, thick] coordinates {(10,0.7077) +- (0,0.0698) (30,0.7682) +- (0,0.0640) (80,0.8448) +- (0,0.0465) (110,0.8603) +- (0,0.0248) (170,0.8670) +- (0,0.0305) (350,0.8531) +- (0,0.0456) (590,0.8419) +- (0,0.0383)};
+\addplot[color=red, mark=square*, mark size=1.6pt, thick] coordinates {(10,0.7441) +- (0,0.0510) (30,0.8388) +- (0,0.0218) (80,0.8682) +- (0,0.0224) (110,0.8873) +- (0,0.0116) (170,0.8811) +- (0,0.0199) (350,0.8932) +- (0,0.0102) (590,0.9005) +- (0,0.0052)};
+\addplot[color=green!60!black, mark=triangle*, mark size=1.6pt, thick] coordinates {(10,0.7622) +- (0,0.0660) (30,0.8265) +- (0,0.0336) (80,0.8533) +- (0,0.0197) (110,0.8600) +- (0,0.0158) (170,0.8584) +- (0,0.0219) (350,0.8812) +- (0,0.0090) (590,0.8784) +- (0,0.0033)};
+\addplot[color=orange, mark=diamond*, mark size=1.6pt, thick] coordinates {(10,0.7732) +- (0,0.0342) (30,0.7988) +- (0,0.0237) (80,0.8312) +- (0,0.0167) (110,0.8526) +- (0,0.0137) (170,0.8463) +- (0,0.0179) (350,0.8657) +- (0,0.0162) (590,0.8870) +- (0,0.0112)};
 \addplot[color=black, densely dotted, thick, no marks, forget plot] coordinates {(8,0.981) (700,0.981)};
 \nextgroupplot[title={Harmful-to-human}, xtick={10,30,80,170,350,590}, xticklabels={10,30,80,170,,590}, xmin=8, xmax=700]
 \addplot[color=blue, mark=*, mark size=1.6pt, thick] coordinates {(10,0.6991) +- (0,0.0292) (30,0.7992) +- (0,0.0698) (80,0.8341) +- (0,0.0382) (110,0.8560) +- (0,0.0324) (170,0.8848) +- (0,0.0129) (350,0.8852) +- (0,0.0338) (590,0.8913) +- (0,0.0095)};
@@ -21,10 +21,10 @@
 \addplot[color=orange, mark=diamond*, mark size=1.6pt, thick] coordinates {(10,0.5713) +- (0,0.0305) (30,0.5753) +- (0,0.0195) (80,0.5923) +- (0,0.0184) (110,0.6138) +- (0,0.0434) (170,0.6294) +- (0,0.0421) (350,0.6935) +- (0,0.0363) (590,0.6796) +- (0,0.0396)};
 \addplot[color=black, densely dotted, thick, no marks, forget plot] coordinates {(8,0.98) (700,0.98)};
 \nextgroupplot[xtick={10,30,80,170,350,590}, xticklabels={10,30,80,170,,590}, xmin=8, xmax=700, ylabel={mean AUROC (detailed)}]
-\addplot[color=blue, mark=*, mark size=1.6pt, thick] coordinates {(10,0.7746) +- (0,0.0526) (30,0.9084) +- (0,0.0134) (80,0.9294) +- (0,0.0043) (110,0.9398) +- (0,0.0057) (170,0.9442) +- (0,0.0029) (350,0.9487) +- (0,0.0019) (590,0.9485) +- (0,0.0026)};
-\addplot[color=red, mark=square*, mark size=1.6pt, thick] coordinates {(10,0.7968) +- (0,0.0502) (30,0.8794) +- (0,0.0349) (80,0.9080) +- (0,0.0148) (110,0.9263) +- (0,0.0083) (170,0.9336) +- (0,0.0068) (350,0.9260) +- (0,0.0084) (590,0.9278) +- (0,0.0035)};
-\addplot[color=green!60!black, mark=triangle*, mark size=1.6pt, thick] coordinates {(10,0.8252) +- (0,0.0113) (30,0.8780) +- (0,0.0224) (80,0.9115) +- (0,0.0146) (110,0.9110) +- (0,0.0085) (170,0.9181) +- (0,0.0072) (350,0.9267) +- (0,0.0058) (590,0.9257) +- (0,0.0043)};
-\addplot[color=orange, mark=diamond*, mark size=1.6pt, thick] coordinates {(10,0.7723) +- (0,0.0442) (30,0.8770) +- (0,0.0204) (80,0.9148) +- (0,0.0102) (110,0.9126) +- (0,0.0135) (170,0.9219) +- (0,0.0030) (350,0.9282) +- (0,0.0053) (590,0.9307) +- (0,0.0030)};
+\addplot[color=blue, mark=*, mark size=1.6pt, thick] coordinates {(10,0.8229) +- (0,0.0648) (30,0.9002) +- (0,0.0168) (80,0.9248) +- (0,0.0078) (110,0.9398) +- (0,0.0057) (170,0.9442) +- (0,0.0029) (350,0.9487) +- (0,0.0019) (590,0.9485) +- (0,0.0026)};
+\addplot[color=red, mark=square*, mark size=1.6pt, thick] coordinates {(10,0.7939) +- (0,0.0382) (30,0.8822) +- (0,0.0283) (80,0.9133) +- (0,0.0113) (110,0.9263) +- (0,0.0083) (170,0.9336) +- (0,0.0068) (350,0.9260) +- (0,0.0084) (590,0.9278) +- (0,0.0035)};
+\addplot[color=green!60!black, mark=triangle*, mark size=1.6pt, thick] coordinates {(10,0.8231) +- (0,0.0188) (30,0.8729) +- (0,0.0286) (80,0.9191) +- (0,0.0103) (110,0.9110) +- (0,0.0085) (170,0.9181) +- (0,0.0072) (350,0.9267) +- (0,0.0058) (590,0.9257) +- (0,0.0043)};
+\addplot[color=orange, mark=diamond*, mark size=1.6pt, thick] coordinates {(10,0.7775) +- (0,0.0406) (30,0.8785) +- (0,0.0164) (80,0.9106) +- (0,0.0134) (110,0.9126) +- (0,0.0135) (170,0.9219) +- (0,0.0030) (350,0.9282) +- (0,0.0053) (590,0.9307) +- (0,0.0030)};
 \addplot[color=black, densely dotted, thick, no marks] coordinates {(8,0.981) (700,0.981)};
 \nextgroupplot[xtick={10,30,80,170,350,590}, xticklabels={10,30,80,170,,590}, xmin=8, xmax=700, legend to name=sizelegend]
 \addplot[color=blue, mark=*, mark size=1.6pt, thick] coordinates {(10,0.6419) +- (0,0.0637) (30,0.7916) +- (0,0.0371) (80,0.8023) +- (0,0.0275) (110,0.7906) +- (0,0.0364) (170,0.8365) +- (0,0.0309) (350,0.8590) +- (0,0.0186) (590,0.8573) +- (0,0.0208)};
