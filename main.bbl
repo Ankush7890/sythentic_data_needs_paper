@@ -1,4 +1,4 @@
-\begin{thebibliography}{34}
+\begin{thebibliography}{32}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -17,13 +17,6 @@ Yuntao Bai, Andy Jones, Kamal Ndousse, Amanda Askell, Anna Chen, Nova DasSarma,
 \newblock Training a helpful and harmless assistant with reinforcement learning
   from human feedback.
 \newblock \emph{arXiv preprint arXiv:2204.05862}, 2022.
-
-\bibitem[Bailey et~al.(2024)Bailey, Serrano, Sheshadri, Seleznyov, Taylor,
-  Jenner, Hilton, Casper, Guestrin, and Emmons]{bailey2024obfuscated}
-Luke Bailey, Alex Serrano, Abhay Sheshadri, Mikhail Seleznyov, Jordan Taylor,
-  Erik Jenner, Jacob Hilton, Stephen Casper, Carlos Guestrin, and Scott Emmons.
-\newblock Obfuscated activations bypass {LLM} latent-space defenses.
-\newblock \emph{arXiv preprint arXiv:2412.09565}, 2024.
 
 \bibitem[Belinkov(2022)]{belinkov2022probing}
 Yonatan Belinkov.
@@ -91,6 +84,16 @@ Nicholas Goldowsky-Dill, Bilal Chughtai, Stefan Heimersheim, and Marius
   Learning}, 2025.
 \newblock arXiv:2502.03407.
 
+\bibitem[Greco et~al.(2025)Greco, La~Cava, Zangari, and
+  Tagarelli]{greco2025moral}
+Candida~Maria Greco, Lucio La~Cava, Lorenzo Zangari, and Andrea Tagarelli.
+\newblock Exploring {LLMs}' ability to spontaneously and conditionally modify
+  moral expressions through text manipulation.
+\newblock In \emph{Proceedings of the 63rd Annual Meeting of the Association
+  for Computational Linguistics (Volume 1: Long Papers)}, pp.\  18047--18070,
+  2025.
+\newblock \doi{10.18653/v1/2025.acl-long.883}.
+
 \bibitem[Heo et~al.(2025)Heo, Heinze-Deml, Elachqar, Ren, Nallasamy, Miller,
   Chan, and Narain]{heo2025instructions}
 Juyeon Heo, Christina Heinze-Deml, Oussama Elachqar, Shirley Ren, Udhay
@@ -112,14 +115,6 @@ John Hewitt and Percy Liang.
 \newblock In \emph{Proceedings of the 2019 Conference on Empirical Methods in
   Natural Language Processing and the 9th International Joint Conference on
   Natural Language Processing (EMNLP-IJCNLP)}, pp.\  2733--2743, 2019.
-
-\bibitem[Kiela et~al.(2021)Kiela, Bartolo, Nie, Kaushik, Geiger, Wu, Vidgen,
-  Prasad, Singh, Ringshia, et~al.]{kiela2021dynabench}
-Douwe Kiela, Max Bartolo, Yixin Nie, Divyansh Kaushik, Atticus Geiger,
-  Zhengxuan Wu, Bertie Vidgen, Grusha Prasad, Amanpreet Singh, Pratik Ringshia,
-  et~al.
-\newblock Dynabench: Rethinking benchmarking in {NLP}.
-\newblock In \emph{Proceedings of NAACL-HLT}, 2021.
 
 \bibitem[Kirch et~al.(2026)Kirch, Dower, Skapars, Yannakoudakis, Lubana, and
   Krasheninnikov]{kirch2026offpolicy}
@@ -176,15 +171,6 @@ Alex McKenzie, Urja Pawar, Phil Blandfort, William Bankes, Yarin Gal, David
 \newblock Detecting high-stakes interactions with activation probes.
 \newblock \emph{arXiv preprint arXiv:2506.10805}, 2025.
 
-\bibitem[Nie et~al.(2020)Nie, Williams, Dinan, Bansal, Weston, and
-  Kiela]{nie2020adversarial}
-Yixin Nie, Adina Williams, Emily Dinan, Mohit Bansal, Jason Weston, and Douwe
-  Kiela.
-\newblock Adversarial {NLI}: A new benchmark for natural language
-  understanding.
-\newblock In \emph{Proceedings of the 58th Annual Meeting of the Association
-  for Computational Linguistics}, 2020.
-
 \bibitem[Park et~al.(2024)Park, Choe, and Veitch]{park2024linear}
 Kiho Park, Yo~Joong Choe, and Victor Veitch.
 \newblock The linear representation hypothesis and the geometry of large
@@ -199,13 +185,6 @@ Alicia Parrish, Angelica Chen, Nikita Nangia, Vishakh Padmakumar, Jason Phang,
 \newblock {BBQ}: A hand-built bias benchmark for question answering.
 \newblock In \emph{Findings of the Association for Computational Linguistics:
   ACL 2022}, pp.\  2086--2105, 2022.
-
-\bibitem[Perez et~al.(2022)Perez, Huang, Song, Cai, Ring, Aslanides, Glaese,
-  McAleese, and Irving]{perez2022red}
-Ethan Perez, Saffron Huang, Francis Song, Trevor Cai, Roman Ring, John
-  Aslanides, Amelia Glaese, Nat McAleese, and Geoffrey Irving.
-\newblock Red teaming language models with language models.
-\newblock \emph{arXiv preprint arXiv:2202.03286}, 2022.
 
 \bibitem[Ren et~al.(2025)Ren, Xu, Yang, Wang, Zhu, Wei, Yu, and
   Xu]{ren2025distribution}
@@ -250,5 +229,13 @@ Yue Yu, Yuchen Zhuang, Jieyu Zhang, Yu~Meng, Alexander Ratner, Ranjay Krishna,
   diversity and bias.
 \newblock In \emph{Advances in Neural Information Processing Systems 36
   (Datasets and Benchmarks Track)}, 2023.
+
+\bibitem[Zhang et~al.(2026)Zhang, Bornet, Yang, Liu, and
+  Teodoro]{zhang2026healthcontradict}
+Boya Zhang, Alban Bornet, Rui Yang, Nan Liu, and Douglas Teodoro.
+\newblock {HealthContradict}: Evaluating biomedical knowledge conflicts in
+  language models.
+\newblock \emph{npj Digital Medicine}, 9\penalty0 (152), 2026.
+\newblock \doi{10.1038/s41746-025-02336-0}.
 
 \end{thebibliography}
