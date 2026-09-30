@@ -33,5 +33,5 @@
 \node[box=3.45cm, anchor=west] (stats) at (9.0,0) {\textbf{Statistics}\\[1pt]
   $R=m_{\text{mixed}}/m_{\text{own}}$: how many mixed samples one own-split-kind sample is worth; 1 if split-kinds substitute, their number (6, 4, 4) if they do not\\[1pt]
   $G=\text{gain}_{\text{minus}}/\text{gain}_{\text{mixed}}$: the gain the other split-kinds deliver alone; 1 if they suffice, 0 if only the own one does\\[1pt]
-  $T$: AUROC of a probe trained on one split-kind, scored on another; no curves needed};
+  $T$: AUROC of a probe trained on one split-kind, scored on the other split-kinds' samples of the same set; no curves, no evaluation data};
 \end{tikzpicture}

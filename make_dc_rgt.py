@@ -1,7 +1,8 @@
 """figures/dc_rgt.tex: R, G and T per concept, generated (filled) and real dev-set (open) medians, with the
 per-split values behind them. Generated per-split R and G are the medians over used cells (as tables/dc_splits.tex),
-per-split T the mean of T_ij over the other kinds and the four generators (data/direction_count/dc_geometry.csv);
-real per-split R and G from dc_dev_partc_ratios.csv (usable splits), T = t_other_dev from dc_dev_cells.csv.
+per-split T = t_gen2gen from data/dev_coverage/dc_xfer_cells.csv (probe on one kind scored on the set's other kinds);
+real per-split R and G from dc_dev_partc_ratios.csv (usable splits), T = t_dev2dev from dc_xfer_cells.csv
+(probe on one dev split scored on the other dev splits). High-stakes T is pending (no rows yet).
 Concept medians are those of tables/dc_main.tex."""
 import csv, collections, statistics as st
 from pathlib import Path
@@ -13,15 +14,14 @@ for r in csv.DictReader(open(D / "direction_count" / "dc_ratios.csv")):
     if r["usable"] == "1":
         gen[(r["concept"], r["split"])]["R"].append(float(r["R"])); gen[(r["concept"], r["split"])]["G"].append(float(r["G"]))
 genT = collections.defaultdict(list)
-for r in csv.DictReader(open(D / "direction_count" / "dc_geometry.csv")):
-    if r["kind_i"] != r["kind_j"] and r["T_ij"]:
-        genT[(r["concept"], r["split_i"])].append(float(r["T_ij"]))
+for r in csv.DictReader(open(D / "dev_coverage" / "dc_xfer_cells.csv")):
+    if r["t_gen2gen"]: genT[(r["concept"], r["split"])].append(float(r["t_gen2gen"]))
 real = {}
 for r in csv.DictReader(open(D / "dev_coverage" / "dc_dev_partc_ratios.csv")):
     if r["usable"] == "1":
         real[(r["concept"], r["split"])] = {"R": float(r["R_dev"]), "G": float(r["G_dev_fit"])}
-for r in csv.DictReader(open(D / "dev_coverage" / "dc_dev_cells.csv")):
-    real.setdefault((r["concept"], r["split"]), {})["T"] = float(r["t_other_dev"])
+for r in csv.DictReader(open(D / "dev_coverage" / "dc_xfer_cells.csv")):
+    if r["t_dev2dev"]: real.setdefault((r["concept"], r["split"]), {})["T"] = float(r["t_dev2dev"])
 pts = {"R": {"gen": [], "real": []}, "G": {"gen": [], "real": []}, "T": {"gen": [], "real": []}}
 for (c, s), d in gen.items():
     pts["R"]["gen"].append((X[c], st.median(d["R"]))); pts["G"]["gen"].append((X[c], st.median(d["G"])))
@@ -37,7 +37,8 @@ for line in open(Path(__file__).parent / "tables" / "dc_main.tex"):
     if len(cells) < 10: continue
     if cells[0]: _x += 1
     src = "gen" if cells[1].startswith("generated") else "real"
-    med["R"][src][_x], med["G"][src][_x], med["T"][src][_x] = float(cells[7]), float(cells[8]), float(cells[9])
+    med["R"][src][_x], med["G"][src][_x] = float(cells[7]), float(cells[8])
+    if cells[9] not in ("--", "", "pending"): med["T"][src][_x] = float(cells[9])
 for k in med: print(k, {src: {x: round(y, 2) for x, y in m.items()} for src, m in med[k].items()})
 def coords(v, dx, ymax=None):
     return " ".join(f"({x+dx},{min(y, ymax) if ymax else y:.3f})" for x, y in v)
@@ -56,8 +57,10 @@ for k, title, opts, ymax in panels:
         out.append(r"\draw[dashed, black!50] (axis cs:0.5,0.5) -- (axis cs:3.5,0.5);")
     out.append(rf"\addplot[only marks, mark=*, mark size=1pt, color=black!35] coordinates {{{coords(pts[k]['gen'], -0.18, ymax)}}};")
     out.append(rf"\addplot[only marks, mark=o, mark size=1pt, color=black!45] coordinates {{{coords(pts[k]['real'], 0.18, ymax)}}};")
-    out.append(rf"\addplot[only marks, mark=*, mark size=2.4pt, color=red] coordinates {{{coords([(x, med[k]['gen'][x]) for x in (1,2,3)], -0.18)}}};")
-    out.append(rf"\addplot[only marks, mark=o, mark size=2.4pt, color=red, line width=0.9pt] coordinates {{{coords([(x, med[k]['real'][x]) for x in (1,2,3)], 0.18)}}};")
+    out.append(rf"\addplot[only marks, mark=*, mark size=2.4pt, color=red] coordinates {{{coords([(x, med[k]['gen'][x]) for x in (1,2,3) if x in med[k]['gen']], -0.18)}}};")
+    out.append(rf"\addplot[only marks, mark=o, mark size=2.4pt, color=red, line width=0.9pt] coordinates {{{coords([(x, med[k]['real'][x]) for x in (1,2,3) if x in med[k]['real']], 0.18)}}};")
+    if k == "T" and 3 not in med[k]["gen"]:
+        out.append(r"\node[font=\tiny, black!45, align=center] at (axis cs:3,0.73) {pending};")
     if k == "G":
         out.append(r"\node[font=\tiny, black!45, anchor=west, inner sep=1pt] at (axis cs:1.88,1.3) {3.6};")
 out += [r"\end{groupplot}", r"\end{tikzpicture}"]
