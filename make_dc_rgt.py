@@ -2,7 +2,7 @@
 per-split values behind them. Generated per-split R and G are the medians over used cells (as tables/dc_splits.tex),
 per-split T = t_gen2gen from data/dev_coverage/dc_xfer_cells.csv (probe on one kind scored on the set's other kinds);
 real per-split R and G from dc_dev_partc_ratios.csv (usable splits), T = t_dev2dev from dc_xfer_cells.csv
-(probe on one dev split scored on the other dev splits). High-stakes T is pending (no rows yet).
+(probe on one dev split scored on the other dev splits). All three concepts present (high-stakes from commit 6eec832).
 Concept medians are those of tables/dc_main.tex."""
 import csv, collections, statistics as st
 from pathlib import Path
